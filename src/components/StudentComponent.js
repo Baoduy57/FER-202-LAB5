@@ -10,7 +10,7 @@ import {
 } from "react-bootstrap";
 import { useState } from "react";
 import { createStudent, deleteStudent, getAllStudents } from "../API/MainAPI";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const StudentComponent = () => {
   const [studentName, setStudentName] = useState("");
@@ -138,8 +138,10 @@ const StudentComponent = () => {
                         }
                       ></Form.Check>
                     </td>
-                    <td onClick={() => handleStudentClick(students._id)}>
-                      {students.name}
+                    <td>
+                      <Link to={`/details/${students._id}`}>
+                        {students.name}
+                      </Link>
                     </td>
                     <td>{students.studentCode}</td>
                     <td>
